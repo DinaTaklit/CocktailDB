@@ -6,11 +6,19 @@ import SingleCocktail from './pages/SingleCocktail'
 import Error from './pages/Error'
 // import components
 import Navbar from './components/Navbar'
+
 function App() {
+  /* Setup React router*/
   return (
-    <div>
-      <h2>app component</h2>
-    </div>
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/cocktails/:id" component={SingleCocktail} />
+        <Route path="*" component={Error} />
+      </Switch>
+    </Router>
   )
 }
 
