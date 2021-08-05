@@ -11,7 +11,7 @@ const AppProvider = ({children}) => {
     // State to set up searchTerm
     const [searchTerm, setSearchTerm] = useState('a')
     // State to store the coktails list
-    const [coktails, setCotails] = useState([])
+    const [cocktails, setCotails] = useState([])
 
     // Function that fetchCocktails
     // useCallback to memorize the fetchCocktails function
@@ -64,7 +64,7 @@ const AppProvider = ({children}) => {
             value={{
                 loading,
                 searchTerm,
-                coktails,
+                cocktails,
                 setSearchTerm
             }}
         >
