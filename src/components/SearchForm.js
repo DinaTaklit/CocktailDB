@@ -9,13 +9,19 @@ const SearchForm = () => {
   //UseRef to store the search input 
   const inputRef = React.useRef(null)
 
+  // Set the value of the search input when the user clicks the search button
   const searchCocktail = () => {
     setSearchTerm(inputRef.current.value)
   }
 
+  // Prevent the default action after a click on the search button
+  const handleSubmit = event => {
+    event.preventDefault()
+  }
+
   return (
     <section className="section search">
-      <form className="search-form">
+      <form className="search-form" onSubmit={handleSubmit}>
         <div className="form-control">
           <label htmlFor="name">search your favorite cocktail</label>
           <input 
