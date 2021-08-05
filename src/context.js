@@ -14,7 +14,8 @@ const AppProvider = ({children}) => {
     const [coktails, setCotails] = useState([])
 
     // Function that fetchCocktails
-    const fetchCocktails = async() => {
+    // useCallback to memorize the fetchCocktails function
+    const fetchCocktails =useCallback( async() => {
         setLoading(true)
         try {
             // Fetch cocktails from CocktailsDB API
@@ -50,13 +51,13 @@ const AppProvider = ({children}) => {
             console.log(error)
             setLoading(false)
         }
-    }
+    }, [searchTerm])
 
     // UseEffect that run fetchCocktails when the component mounts or when there is a change in the searchTerm
 
     useEffect(() => {
         fetchCocktails()
-    }, [searchTerm])
+    }, [searchTerm, fetchCocktails])
 
     return (
         <AppContext.Provider 
