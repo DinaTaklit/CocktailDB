@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 // import pages
 import Home from './pages/Home'
 import About from './pages/About'
@@ -13,7 +13,10 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/">
+          <Redirect to='/CocktailDB/'/>
+        </Route>
+        <Route path="/CocktailDB/" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/cocktails/:id" component={SingleCocktail} />
         <Route path="*" component={Error} />
