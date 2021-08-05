@@ -1,4 +1,4 @@
-import React, { useState,useEffect,useContext,useMemo, useCallback } from "react";
+import React, { useState, useEffect, useContext, useCallback } from "react";
 
 const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
 
@@ -19,7 +19,7 @@ const AppProvider = ({children}) => {
         setLoading(true)
         try {
             // Fetch cocktails from CocktailsDB API
-            const {coktails} = await fetch(url + searchTerm).then(response => response.json())
+            const coktails = await fetch(`${url}${searchTerm}`).then(response => response.json())
             const {drinks} = coktails // Get the drinks from the fetched data
             // If the drinks are not empty, set the state to the list of drinks
             if (drinks) {
